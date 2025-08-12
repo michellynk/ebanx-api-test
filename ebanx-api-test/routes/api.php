@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AccountController;
 
-Route::post('/reset', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/balance', [AccountController::class, 'balance']);
+
+Route::post('/event', [AccountController::class, 'event']);
+
+Route::post('/reset', [AccountController::class, 'reset']);
